@@ -90,6 +90,9 @@ Application-specific integrated circuit
 #### ASN.1
 Abstract Syntax Notation One as defined in ISO/IEC 8824:1990
 
+#### [[10GBASE/MAC/AXI\|AXI]]
+Advanced Extensible Interface
+
 #### AUI
 Attachment unit interface
 
@@ -873,7 +876,7 @@ Safety Extra Low Voltage
 #### SER
 Symbol Error Ratio
 
-#### SERDES
+#### [[10GBASE/PCS/SERDES\|SERDES]]
 Serializer and Deserializer Circuit
 
 #### SES

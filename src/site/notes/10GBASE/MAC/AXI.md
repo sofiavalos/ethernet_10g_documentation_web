@@ -37,5 +37,6 @@ In the AXI specification, five [channels](https://en.wikipedia.org/wiki/Communi
 - Write Response channel (B)
 
 Other than some basic ordering rules,[9](https://en.wikipedia.org/wiki/Advanced_eXtensible_Interface#cite_note-9) each [channel](https://en.wikipedia.org/wiki/Communication_channel "Communication channel") is independent from each other and has its own couple of `xVALID/xREADY` [handshake](https://en.wikipedia.org/wiki/Handshake_(computing) "Handshake (computing)") signals.[10](https://en.wikipedia.org/wiki/Advanced_eXtensible_Interface#cite_note-10)
-[[10GBASE/MAC/MASTER-SLAVE INTERFACE\|MASTER-SLAVE INTERFACE]]
+
+- [[10GBASE/MAC/MASTER-SLAVE INTERFACE\|MASTER-SLAVE INTERFACE]]
 
