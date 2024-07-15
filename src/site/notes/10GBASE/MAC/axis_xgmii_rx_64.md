@@ -23,21 +23,21 @@ Modulo que convierte interfaz [XGMII](Abbreviations.md#XGMII) a [[10GBASE/MAC/AX
 
 ## Ports
 
-| Port name       | Direction | Type                    | Description                                                 |
-| --------------- | --------- | ----------------------- | ----------------------------------------------------------- |
-| clk             | input     | wire                    | Señal de clock                                              |
-| rst             | input     | wire                    | Señal de reset                                              |
+| Port name       | Direction | Type                    | Description                                                    |
+| --------------- | --------- | ----------------------- | -------------------------------------------------------------- |
+| clk             | input     | wire                    | Señal de clock                                                 |
+| rst             | input     | wire                    | Señal de reset                                                 |
 | xgmii_rxd       | input     | wire [DATA_WIDTH-1:0]   | Entrada de datos de interfaz [XGMII](Abbreviations.md#XGMII)   |
 | xgmii_rxc       | input     | wire [CTRL_WIDTH-1:0]   | Entrada de control de interfaz [XGMII](Abbreviations.md#XGMII) |
-| m_axis_tdata    | output    | wire [DATA_WIDTH-1:0]   | Salida de datos de la interfaz AXI                          |
-| m_axis_tkeep    | output    | wire [KEEP_WIDTH-1:0]   | Salida de bits válidos de la interfaz AXI                   |
-| m_axis_tvalid   | output    | wire                    | Señal de datos válidos de la interfaz AXI                   |
-| m_axis_tlast    | output    | wire                    | Señal de fin de trama de la interfaz AXI                    |
-| m_axis_tuser    | output    | wire [USER_WIDTH-1:0]   | Salida de datos de usuario de la interfaz AXI               |
-| ptp_ts          | input     | wire [PTP_TS_WIDTH-1:0] | Entrada de marca de tiempo PTP                              |
-| cfg_rx_enable   | input     | wire                    | Señal de configuración para habilitar recepción             |
-| start_packet    | output    | wire [1:0]              | Estado indicando inicio de paquete                          |
-| error_bad_frame | output    | wire                    | Señal de error para trama incorrecta                        |
+| m_axis_tdata    | output    | wire [DATA_WIDTH-1:0]   | Salida de datos de la interfaz AXI                             |
+| m_axis_tkeep    | output    | wire [KEEP_WIDTH-1:0]   | Salida de bits válidos de la interfaz AXI                      |
+| m_axis_tvalid   | output    | wire                    | Señal de datos válidos de la interfaz AXI                      |
+| m_axis_tlast    | output    | wire                    | Señal de fin de trama de la interfaz AXI                       |
+| m_axis_tuser    | output    | wire [USER_WIDTH-1:0]   | Salida de datos de usuario de la interfaz AXI                  |
+| ptp_ts          | input     | wire [PTP_TS_WIDTH-1:0] | Entrada de marca de tiempo PTP                                 |
+| cfg_rx_enable   | input     | wire                    | Señal de configuración para habilitar recepción                |
+| start_packet    | output    | wire [1:0]              | Estado indicando inicio de paquete                             |
+| error_bad_frame | output    | wire                    | Señal de error para trama incorrecta                           |
 | error_bad_fcs   | output    | wire                    | Señal de error para [FCS](Abbreviations.md#FCS) incorrecto     |
 
 ## Signals
