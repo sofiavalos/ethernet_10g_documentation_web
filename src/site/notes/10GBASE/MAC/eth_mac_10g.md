@@ -163,16 +163,16 @@ Instancia un módulo para el transmisor que transforma la interfaz AXIS A XGMII
 
 - mac_ctrl_tx_inst: [[10GBASE/MAC/mac_ctrl_tx\|10GBASE/MAC/mac_ctrl_tx]]
 **Description**  
-Instancia un módulo que transforma la interfaz XGMII a AXIS
+Instancia un módulo que controla la transmisión MAC
 
 - mac_ctrl_rx_inst: [[10GBASE/MAC/mac_ctrl_rx\|mac_ctrl_rx]]
 **Description**  
-Instancia un módulo que transforma la interfaz XGMII a AXIS
+Instancia un módulo que controla la recepción MAC
 
 - mac_pause_ctrl_tx_inst: [[10GBASE/MAC/mac_pause_ctrl_tx\|mac_pause_ctrl_tx]]
 **Description**  
-Instancia un módulo que transforma la interfaz XGMII a AXIS
+Instancia un módulo que controla el frame de pause de la transmisión MAC
 
 - mac_pause_ctrl_rx_inst: [[10GBASE/MAC/mac_pause_ctrl_rx\|mac_pause_ctrl_rx]]
 **Description**  
-Instancia un módulo que transforma la interfaz XGMII a AXIS
+Instancia un módulo que controla el frama de pausa de la recepción MAC
