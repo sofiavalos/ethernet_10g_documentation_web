@@ -20,10 +20,10 @@ Bloque que se encarga de controlar la recepción [[10GBASE/MAC/MAC\|MAC]].
 
 - *id, dest* y *src* usan los valores de la interfaz [[10GBASE/MAC/AXI\|AXI]].
 **Interfaz CFG(configuration)**
-- Verifica si es recepción multicast o unicast, mediante una comparación con el parámetro dest.
+- Verifica si es recepción multicast o unicast, mediante una comparación con el parámetro *dest*.
 - Usa las variables check para realizar otras comparaciones.
 - Verifica si el *src* coincide con el *scr* del dato siguiente.
-- Realiza lo mismo con type.
+- Realiza lo mismo con *type*.
 - Verifica si el código de operación, es decir, *opcode*, corresponde al [[10GBASE/MAC/PFC\|PFC]] o [[10GBASE/MAC/LFC\|LFC]].
 **Estado**
 - Si está en el último bit del paquete, marca el estado como listo.
