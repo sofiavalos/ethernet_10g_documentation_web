@@ -15,8 +15,8 @@ Bloque que se encarga de controlar la recepción [[10GBASE/MAC/MAC\|MAC]].
 - Se crea un registro *valid* temporal, para que, en caso de que la salida no se encuentre lista, se coloque la información del registro de entrada en el registro temporal.
 - Las señales *eth_dst, eth_src, eth_type* y *opcode* corresponden al header, con la siguiente disposición:
 
-| dst | dst | dst | dst | dst | dst | src | src | src | src | src | src | src | type | type | opcode | opcode |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ------ | ------ |
+| dst | dst | dst | dst | dst | dst | src | src | src | src | src | src | type | type | opcode | opcode |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ------ | ------ |
 
 - *id, dest* y *src* usan los valores de la interfaz [[10GBASE/MAC/AXI\|AXI]].
 **Interfaz CFG(configuration)**
