@@ -9,7 +9,12 @@
 ![axis_xgmii_rx_compuesto.png](/img/user/10GBASE/MAC/axis_xgmii_rx_compuesto.png)
 ## Description
 
-Modulo que convierte interfaz [[Abbreviations#XGMII\|XGMII]] a [[Abbreviations#AXI\|AXI]]
+Modulo que convierte interfaz [[Abbreviations#XGMII\|XGMII]] a [[Abbreviations#AXI\|AXI]].
+Verifica el estado en el que se encuentra. En caso de que sea [[10GBASE/MAC/IDLE\|IDLE]], verifica si está el receptor habilitado (*rx_enable*), y si se está en el inicio de paquete, si es así, define el estado siguiente como [[10GBASE/MAC/PAYLOAD\|PAYLOAD]].
+Cuando el estado es [[10GBASE/MAC/PAYLOAD\|PAYLOAD]], transfiere los datos [[10GBASE/MAC/XGMII\|XGMII]] a [[10GBASE/MAC/AXI\|AXI]], además, desactiva a flag de *tlast*, y verifica los errores de framing; en caso de que se presenten, activa la flag de *bad_frame* y *bad_fcs*,  reinicia el CRC y coloca el siguiente estado como [[10GBASE/MAC/IDLE\|IDLE]]; en caso de que no se presenten y este activa la flag de caracter de finalización, verifica la validez del [[10GBASE/MAC/CRC\|CRC]]. Si este es válido define el próximo estado como [[10GBASE/MAC/LAST\|LAST]], en caso de que no lo sea, define el próximo estado como [[10GBASE/MAC/IDLE\|IDLE]]. Si no está presente el bit de finalización, el siguiente estado es [[10GBASE/MAC/PAYLOAD\|PAYLOAD]].
+Cuando el estado es [[10GBASE/MAC/LAST\|LAST]], verifica la validez del [[10GBASE/MAC/CRC\|CRC]], si este no es válido, activa las flags de *bad_frame* y *bad_fcs*, si es válido, verifica si el siguiente dato corresponde al inicio de un paquete, en cuyo caso, define el estado siguiente como [[10GBASE/MAC/PAYLOAD\|PAYLOAD]], y en caso contrario lo define como [[10GBASE/MAC/IDLE\|IDLE]].
+Por otra parte, verifica si hay o no un intercambio de carriles y en base a eso busca el caracter de finalización, cuando lo encuentra, coloca el bit como uno.
+Además, realiza una búsqueda del carácter de inicio, cuando lo encuentra señala si deben o no invertirse los lanes, y activa la flag de caracter de inicio encontrado.
 
 ## Generics
 
