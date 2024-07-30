@@ -9,7 +9,7 @@
 ## Description
 
 Bloque que se encarga de controlar la recepción [[10GBASE/MAC/MAC\|MAC]].
-- La información de la interfaz [[10GBASE/MAC/AXI\|AXI]] pasa sin ser modificada.
+- La información de la interfaz [[10GBASE/MAC/AXI\|AXI]] pasa sin ser modificada excepto los datos.
 **Interfaz MCF (MAC Control Frame)**
 - *Valid*: cuando se está en el último bit del paquete, se activa la flag
 - Se crea un registro *valid* temporal, para que, en caso de que la salida no se encuentre lista, se coloque la información del registro de entrada en el registro temporal.
