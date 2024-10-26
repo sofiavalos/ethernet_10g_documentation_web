@@ -24,8 +24,8 @@ Modulo que verifica la sincronización del header y activa block_lock en caso qu
 | ----------------- | --------- | -------------------- | ------------------------------------------------------------------ |
 | clk               | input     | wire                 | Señal de clock                                                     |
 | rst               | input     | wire                 | Señal de reinicio                                                  |
-| serdes_rx_hdr     | input     | wire [HDR_WIDTH-1:0] | Señal de [[Abbreviations#SERDES\|SERDES]] sync header              |
-| serdes_rx_bitslip | output    | wire                 | Señal de [[Abbreviations#SERDES\|SERDES]] bitslip                  |
+| serdes_rx_hdr     | input     | wire [HDR_WIDTH-1:0] | Señal de [[10GBASE/Abbreviations#SERDES\|SERDES]] sync header              |
+| serdes_rx_bitslip | output    | wire                 | Señal de [[10GBASE/Abbreviations#SERDES\|SERDES]] bitslip                  |
 | rx_block_lock     | output    | wire                 | Señal de salida que indica si se detectaron 64 sync header validos |
 
 ## Signals

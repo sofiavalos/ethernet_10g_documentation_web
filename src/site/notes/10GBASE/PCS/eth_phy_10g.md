@@ -48,7 +48,7 @@
 | rx_bad_block         | output    | wire                  | Señal de estado para indicar un bloque defectuoso durante la recepción   |
 | rx_sequence_error    | output    | wire                  | Señal de error en la secuencia                                           |
 | rx_block_lock        | output    | wire                  | Señal de bloque alineado                                                 |
-| rx_high_ber          | output    | wire                  | Señal que indica un [[Abbreviations#BER\|BER]] alto                      |
+| rx_high_ber          | output    | wire                  | Señal que indica un [[10GBASE/Abbreviations#BER\|BER]] alto                      |
 | rx_status            | output    | wire                  | Señal que indica bloque alineado sin BER en 125us                        |
 | cfg_tx_prbs31_enable | input     | wire                  | Señal que habilita [[10GBASE/PCS/PRBS31\|PRBS31]] en el transmisor                           |
 | cfg_rx_prbs31_enable | input     | wire                  | Señal que habilita [[10GBASE/PCS/PRBS31\|PRBS31]] en el receptor                             |
@@ -56,6 +56,6 @@
 ## Instantiations
 
 - eth_phy_10g_rx_inst: [[10GBASE/PCS/eth_phy_10g_rx\|eth_phy_10g_rx]]
-  -  Modulo que coordina la decodificación de datos XGMII y gestiona la interfaz con el [[Abbreviations#SERDES\|SERDES]] del receptor.
+  -  Modulo que coordina la decodificación de datos XGMII y gestiona la interfaz con el [[10GBASE/Abbreviations#SERDES\|SERDES]] del receptor.
 - eth_phy_10g_tx_inst: [[10GBASE/PCS/eth_phy_10g_tx\|eth_phy_10g_tx]]
-  -  Modulo que coordina la codificación de datos XGMII y gestiona la interfaz con el [[Abbreviations#SERDES\|SERDES]] de transmisión.
+  -  Modulo que coordina la codificación de datos XGMII y gestiona la interfaz con el [[10GBASE/Abbreviations#SERDES\|SERDES]] de transmisión.

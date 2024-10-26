@@ -174,7 +174,7 @@ Bloque que se encarga de controlar la recepción [[10GBASE/MAC/MAC\|MAC]].
 - unnamed: ( @* )
   - **Type:** always
   - **Description**
-  Implementa la lógica para capturar y procesar un encabezado [[Abbreviations#MAC\|MAC]] desde un flujo de datos [[10GBASE/MAC/AXI\|AXI]], almacenando sus campos en registros internos y tomando decisiones basadas en configuraciones y señales de control 
+  Implementa la lógica para capturar y procesar un encabezado [[10GBASE/Abbreviations#MAC\|MAC]] desde un flujo de datos [[10GBASE/MAC/AXI\|AXI]], almacenando sus campos en registros internos y tomando decisiones basadas en configuraciones y señales de control 
 - unnamed: ( @(posedge clk) )
   - **Type:** always
   - **Description**

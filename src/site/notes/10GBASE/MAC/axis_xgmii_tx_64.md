@@ -9,7 +9,7 @@
 ![axis_xgmii_tx_compuesto.png](/img/user/10GBASE/MAC/axis_xgmii_tx_compuesto.png)
 ## Description
 
-Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII\|XGMII]]
+Modulo que convierte interfaz [[10GBASE/Abbreviations#AXI\|AXI]] a [[10GBASE/Abbreviations#XGMII\|XGMII]]
 ## Generics
 
 | Generic name         | Type | Value                    | Description                                                            |
@@ -18,7 +18,7 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 | KEEP_WIDTH           |      | (DATA_WIDTH/8)           | Cantidad de bytes de datos que deben ser válidos                       |
 | CTRL_WIDTH           |      | (DATA_WIDTH/8)           | Cantidad de bits de control                                            |
 | ENABLE_PADDING       |      | 1                        | Flag para habilitar el relleno de tramas                               |
-| ENABLE_DIC           |      | 1                        | Flag para habilitar [[Abbreviations#DIC\|DIC]]                         |
+| ENABLE_DIC           |      | 1                        | Flag para habilitar [[10GBASE/Abbreviations#DIC\|DIC]]                         |
 | MIN_FRAME_LENGTH     |      | 64                       | Longitud mínima de la trama                                            |
 | PTP_TS_ENABLE        |      | 0                        | Flag para habilitar protocolo PTP                                      |
 | PTP_TS_FMT_TOD       |      | 1                        | Flag para cambiar el formato de la marca de tiempo según "Time of day" |
@@ -34,14 +34,14 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 | ------------------- | --------- | ------------------------ | --------------------------------------------------------------------------------- |
 | clk                 | input     | wire                     | Señal de clock                                                                    |
 | rst                 | input     | wire                     | Señal de reset                                                                    |
-| s_axis_tdata        | input     | wire [DATA_WIDTH-1:0]    | Entrada de datos de la interfaz [[Abbreviations#AXI\|AXI]]                        |
-| s_axis_tkeep        | input     | wire [KEEP_WIDTH-1:0]    | Entrada de bits válidos de la interfaz [[Abbreviations#AXI\|AXI]]                 |
-| s_axis_tvalid       | input     | wire                     | Señal de datos válidos de la interfaz [[Abbreviations#AXI\|AXI]]                  |
-| s_axis_tready       | output    | wire                     | Señal de que la interfaz [[Abbreviations#AXI\|AXI]] está lista para recibir datos |
-| s_axis_tlast        | input     | wire                     | Señal de fin de trama de la interfaz [[Abbreviations#AXI\|AXI]]                   |
-| s_axis_tuser        | input     | wire [USER_WIDTH-1:0]    | Entrada de datos de usuario de la interfaz [[Abbreviations#AXI\|AXI]]             |
-| xgmii_txd           | output    | wire [DATA_WIDTH-1:0]    | Salida de datos de la interfaz [[Abbreviations#XGMII\|XGMII]]                     |
-| xgmii_txc           | output    | wire [CTRL_WIDTH-1:0]    | Salida de control de la interfaz [[Abbreviations#XGMII\|XGMII]]                   |
+| s_axis_tdata        | input     | wire [DATA_WIDTH-1:0]    | Entrada de datos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]]                        |
+| s_axis_tkeep        | input     | wire [KEEP_WIDTH-1:0]    | Entrada de bits válidos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]]                 |
+| s_axis_tvalid       | input     | wire                     | Señal de datos válidos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]]                  |
+| s_axis_tready       | output    | wire                     | Señal de que la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] está lista para recibir datos |
+| s_axis_tlast        | input     | wire                     | Señal de fin de trama de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]]                   |
+| s_axis_tuser        | input     | wire [USER_WIDTH-1:0]    | Entrada de datos de usuario de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]]             |
+| xgmii_txd           | output    | wire [DATA_WIDTH-1:0]    | Salida de datos de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]                     |
+| xgmii_txc           | output    | wire [CTRL_WIDTH-1:0]    | Salida de control de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]                   |
 | ptp_ts              | input     | wire [PTP_TS_WIDTH-1:0]  | Entrada de marca de tiempo PTP                                                    |
 | m_axis_ptp_ts       | output    | wire [PTP_TS_WIDTH-1:0]  | Salida de marca de tiempo PTP                                                     |
 | m_axis_ptp_ts_tag   | output    | wire [PTP_TAG_WIDTH-1:0] | Salida de etiqueta de marca de tiempo PTP                                         |
@@ -57,21 +57,21 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 | ---------------------------------------- | ----------------------- | ------------------------------------------------------------------------ |
 | state_reg = STATE_IDLE                   | reg [2:0]               | Registro y próximo estado del FSM                                        |
 | state_next                               | reg [2:0]               | Registro y próximo estado del FSM                                        |
-| reset_crc                                | reg                     | Señal para resetear el [[Abbreviations#CRC\|CRC]]                        |
-| update_crc                               | reg                     | Señal para actualizar el [[Abbreviations#CRC\|CRC]]                      |
+| reset_crc                                | reg                     | Señal para resetear el [[10GBASE/Abbreviations#CRC\|CRC]]                        |
+| update_crc                               | reg                     | Señal para actualizar el [[10GBASE/Abbreviations#CRC\|CRC]]                      |
 | swap_lanes_reg = 1'b0                    | reg                     | Registro y próximo valor de swap de lanes                                |
 | swap_lanes_next                          | reg                     | Registro y próximo valor de swap de lanes                                |
 | swap_txd = 32'd0                         | reg [31:0]              | Datos para swap de lanes                                                 |
 | swap_txc = 4'd0                          | reg [3:0]               | Datos de control para swap de lanes                                      |
-| s_axis_tdata_masked                      | reg [DATA_WIDTH-1:0]    | Datos de la entrada [[Abbreviations#AXI\|AXI]] con máscara aplicada      |
-| s_tdata_reg = 0                          | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos de entrada [[Abbreviations#AXI\|AXI]]  |
-| s_tdata_next                             | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos de entrada [[Abbreviations#AXI\|AXI]]  |
+| s_axis_tdata_masked                      | reg [DATA_WIDTH-1:0]    | Datos de la entrada [[10GBASE/Abbreviations#AXI\|AXI]] con máscara aplicada      |
+| s_tdata_reg = 0                          | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos de entrada [[10GBASE/Abbreviations#AXI\|AXI]]  |
+| s_tdata_next                             | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos de entrada [[10GBASE/Abbreviations#AXI\|AXI]]  |
 | s_empty_reg = 0                          | reg [EMPTY_WIDTH-1:0]   | Registro y próximo valor de datos vacíos                                 |
 | s_empty_next                             | reg [EMPTY_WIDTH-1:0]   | Registro y próximo valor de datos vacíos                                 |
-| fcs_output_txd_0                         | reg [DATA_WIDTH-1:0]    | Datos de salida del primer [[Abbreviations#FCS\|FCS]]                    |
-| fcs_output_txd_1                         | reg [DATA_WIDTH-1:0]    | Datos de salida del segundo [[Abbreviations#FCS\|FCS]]                   |
-| fcs_output_txc_0                         | reg [CTRL_WIDTH-1:0]    | Control de salida del primer [[Abbreviations#FCS\|FCS]]                  |
-| fcs_output_txc_1                         | reg [CTRL_WIDTH-1:0]    | Control de salida del segundo [[Abbreviations#FCS\|FCS]]                 |
+| fcs_output_txd_0                         | reg [DATA_WIDTH-1:0]    | Datos de salida del primer [[10GBASE/Abbreviations#FCS\|FCS]]                    |
+| fcs_output_txd_1                         | reg [DATA_WIDTH-1:0]    | Datos de salida del segundo [[10GBASE/Abbreviations#FCS\|FCS]]                   |
+| fcs_output_txc_0                         | reg [CTRL_WIDTH-1:0]    | Control de salida del primer [[10GBASE/Abbreviations#FCS\|FCS]]                  |
+| fcs_output_txc_1                         | reg [CTRL_WIDTH-1:0]    | Control de salida del segundo [[10GBASE/Abbreviations#FCS\|FCS]]                 |
 | ifg_offset                               | reg [7:0]               | Desplazamiento para el intervalo entre tramas                            |
 | frame_start_reg = 1'b0                   | reg                     | Registro y próximo valor de inicio de trama                              |
 | frame_start_next                         | reg                     | Registro y próximo valor de inicio de trama                              |
@@ -85,22 +85,22 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 | ifg_count_next                           | reg [7:0]               | Registro y próximo valor de contador de intervalo entre tramas           |
 | deficit_idle_count_reg = 2'd0            | reg [1:0]               | Registro y próximo valor de contador de déficit de inactividad           |
 | deficit_idle_count_next                  | reg [1:0]               | Registro y próximo valor de contador de déficit de inactividad           |
-| s_axis_tready_reg = 1'b0                 | reg                     | Registro y próximo valor de disponibilidad de [[Abbreviations#AXI\|AXI]] |
-| s_axis_tready_next                       | reg                     | Registro y próximo valor de disponibilidad de [[Abbreviations#AXI\|AXI]] |
+| s_axis_tready_reg = 1'b0                 | reg                     | Registro y próximo valor de disponibilidad de [[10GBASE/Abbreviations#AXI\|AXI]] |
+| s_axis_tready_next                       | reg                     | Registro y próximo valor de disponibilidad de [[10GBASE/Abbreviations#AXI\|AXI]] |
 | m_axis_ptp_ts_reg = 0                    | reg [PTP_TS_WIDTH-1:0]  | Registro de marca de tiempo PTP                                          |
 | m_axis_ptp_ts_adj_reg = 0                | reg [PTP_TS_WIDTH-1:0]  | Registro de ajuste de marca de tiempo PTP                                |
 | m_axis_ptp_ts_tag_reg = 0                | reg [PTP_TAG_WIDTH-1:0] | Registro de etiqueta de marca de tiempo PTP                              |
 | m_axis_ptp_ts_valid_reg = 1'b0           | reg                     | Registro de validez de marca de tiempo PTP                               |
 | m_axis_ptp_ts_valid_int_reg = 1'b0       | reg                     | Registro interno de validez de marca de tiempo PTP                       |
 | m_axis_ptp_ts_borrow_reg = 1'b0          | reg                     | Registro de ajuste de marca de tiempo PTP                                |
-| crc_state_reg[7:0]                       | reg [31:0]              | Registro de estado de [[Abbreviations#CRC\|CRC]]                         |
-| crc_state_next[7:0]                      | wire [31:0]             | Próximo valor del estado de [[Abbreviations#CRC\|CRC]]                   |
+| crc_state_reg[7:0]                       | reg [31:0]              | Registro de estado de [[10GBASE/Abbreviations#CRC\|CRC]]                         |
+| crc_state_next[7:0]                      | wire [31:0]             | Próximo valor del estado de [[10GBASE/Abbreviations#CRC\|CRC]]                   |
 | last_ts_reg = 0                          | reg [4+16-1:0]          | Registro del último timestamp                                            |
 | ts_inc_reg = 0                           | reg [4+16-1:0]          | Registro de incremento del timestamp                                     |
-| xgmii_txd_reg = {CTRL_WIDTH{XGMII_IDLE}} | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos [[Abbreviations#XGMII\|XGMII]]         |
-| xgmii_txd_next                           | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos [[Abbreviations#XGMII\|XGMII]]         |
-| xgmii_txc_reg = {CTRL_WIDTH{1'b1}}       | reg [CTRL_WIDTH-1:0]    | Registro y próximo valor de control [[Abbreviations#XGMII\|XGMII]]       |
-| xgmii_txc_next                           | reg [CTRL_WIDTH-1:0]    | Registro y próximo valor de control [[Abbreviations#XGMII\|XGMII]]       |
+| xgmii_txd_reg = {CTRL_WIDTH{XGMII_IDLE}} | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos [[10GBASE/Abbreviations#XGMII\|XGMII]]         |
+| xgmii_txd_next                           | reg [DATA_WIDTH-1:0]    | Registro y próximo valor de datos [[10GBASE/Abbreviations#XGMII\|XGMII]]         |
+| xgmii_txc_reg = {CTRL_WIDTH{1'b1}}       | reg [CTRL_WIDTH-1:0]    | Registro y próximo valor de control [[10GBASE/Abbreviations#XGMII\|XGMII]]       |
+| xgmii_txc_next                           | reg [CTRL_WIDTH-1:0]    | Registro y próximo valor de control [[10GBASE/Abbreviations#XGMII\|XGMII]]       |
 | start_packet_reg = 2'b00                 | reg                     | Registro de inicio de paquete                                            |
 | error_underflow_reg = 1'b0               | reg                     | Registro y próximo valor de error por desbordamiento                     |
 | error_underflow_next                     | reg                     | Registro y próximo valor de error por desbordamiento                     |
@@ -114,15 +114,15 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 | MIN_LEN_WIDTH |      | $     | Parametro del ancho mínimo de la longitud                                       |
 | ETH_PRE       |      | 8'h55 | Preambulo de Ethernet                                                           |
 | ETH_SFD       |      | 8'hD5 | Delimitador de inicio de trama de Ethernet                                      |
-| XGMII_IDLE    |      | 8'h07 | Código de control de [[Abbreviations#XGMII\|XGMII]] para estado [[10GBASE/MAC/IDLE\|IDLE]]        |
-| XGMII_START   |      | 8'hfb | Código de control de [[Abbreviations#XGMII\|XGMII]] para inicio de paquete      |
-| XGMII_TERM    |      | 8'hfd | Código de control de [[Abbreviations#XGMII\|XGMII]] para terminación de paquete |
-| XGMII_ERROR   |      | 8'hfe | Código de control de [[Abbreviations#XGMII\|XGMII]] para error                  |
+| XGMII_IDLE    |      | 8'h07 | Código de control de [[10GBASE/Abbreviations#XGMII\|XGMII]] para estado [[10GBASE/MAC/IDLE\|IDLE]]        |
+| XGMII_START   |      | 8'hfb | Código de control de [[10GBASE/Abbreviations#XGMII\|XGMII]] para inicio de paquete      |
+| XGMII_TERM    |      | 8'hfd | Código de control de [[10GBASE/Abbreviations#XGMII\|XGMII]] para terminación de paquete |
+| XGMII_ERROR   |      | 8'hfe | Código de control de [[10GBASE/Abbreviations#XGMII\|XGMII]] para error                  |
 | STATE_IDLE    |      | 3'd0  | Estado [[10GBASE/MAC/IDLE\|IDLE]]                                                                 |
 | STATE_PAYLOAD |      | 3'd1  | Estado [[10GBASE/MAC/PAYLOAD\|PAYLOAD]]                                                              |
 | STATE_PAD     |      | 3'd2  | Estado PAD                                                                      |
-| STATE_FCS_1   |      | 3'd3  | Estado [[Abbreviations#FCS\|FCS]]__1                                            |
-| STATE_FCS_2   |      | 3'd4  | Estado [[Abbreviations#FCS\|FCS]]__2                                            |
+| STATE_FCS_1   |      | 3'd3  | Estado [[10GBASE/Abbreviations#FCS\|FCS]]__1                                            |
+| STATE_FCS_2   |      | 3'd4  | Estado [[10GBASE/Abbreviations#FCS\|FCS]]__2                                            |
 | STATE_ERR     |      | 3'd5  | Estado ERR                                                                      |
 | STATE_IFG     |      | 3'd6  | Estado IFG                                                                      |
 
@@ -137,7 +137,7 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 - unnamed: ( @* )
   - **Type:** always
   - **Description**
-  Calculo del ciclo [[Abbreviations#FCS\|FCS]]
+  Calculo del ciclo [[10GBASE/Abbreviations#FCS\|FCS]]
 - unnamed: ( @* )
   - **Type:** always
   - **Description**
@@ -145,11 +145,11 @@ Modulo que convierte interfaz [[Abbreviations#AXI\|AXI]] a [[Abbreviations#XGMII
 - unnamed: ( @(posedge clk) )
   - **Type:** always
   - **Description**
-  Actualiza registros de control y datos, gestiona la marca de tiempo PTP y el estado del [[Abbreviations#CRC\|CRC]], y controla la transmisión de datos a través del medio físico 
+  Actualiza registros de control y datos, gestiona la marca de tiempo PTP y el estado del [[10GBASE/Abbreviations#CRC\|CRC]], y controla la transmisión de datos a través del medio físico 
 ## Instantiations
 
 - eth_crc: [[10GBASE/PCS/lfsr\|lfsr]]
-  -  Instanciacion del lsfr para calcular el [[Abbreviations#CRC\|CRC]]
+  -  Instanciacion del lsfr para calcular el [[10GBASE/Abbreviations#CRC\|CRC]]
 
 ## State machines
 

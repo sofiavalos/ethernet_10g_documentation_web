@@ -21,7 +21,7 @@ Modulo del transmisor de 10g
 | BIT_REVERSE       |      | 0              | Flag que habilita la inversión de bits                                      |
 | SCRAMBLER_DISABLE |      | 0              | Flag que habilita el scrambler                                              |
 | PRBS31_ENABLE     |      | 0              | Flag que habilita la generacion de patrones pseudoaleatorios [[10GBASE/PCS/PRBS31\|PRBS31]]     |
-| SERDES_PIPELINE   |      | 0              | Flag que habilita el uso de pipeline en el [[Abbreviations#SERDES\|SERDES]] |
+| SERDES_PIPELINE   |      | 0              | Flag que habilita el uso de pipeline en el [[10GBASE/Abbreviations#SERDES\|SERDES]] |
 
 ## Ports
 
@@ -29,9 +29,9 @@ Modulo del transmisor de 10g
 | -------------------- | --------- | --------------------- | ------------------------------------------------------------------------ |
 | clk                  | input     | wire                  | Señal de clock                                                           |
 | rst                  | input     | wire                  | Señal de reset                                                           |
-| xgmii_txc            | input     | wire [CTRL_WIDTH-1:0] | Señales de control de la interfaz [[Abbreviations#XGMII\|XGMII]]         |
-| serdes_tx_data       | output    | wire [DATA_WIDTH-1:0] | Datos de salida para [[Abbreviations#SERDES\|SERDES]]                    |
-| serdes_tx_hdr        | output    | wire [HDR_WIDTH-1:0]  | Header de salida para [[Abbreviations#SERDES\|SERDES]]                   |
+| xgmii_txc            | input     | wire [CTRL_WIDTH-1:0] | Señales de control de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]         |
+| serdes_tx_data       | output    | wire [DATA_WIDTH-1:0] | Datos de salida para [[10GBASE/Abbreviations#SERDES\|SERDES]]                    |
+| serdes_tx_hdr        | output    | wire [HDR_WIDTH-1:0]  | Header de salida para [[10GBASE/Abbreviations#SERDES\|SERDES]]                   |
 | tx_bad_block         | output    | wire                  | Señal de estado para indicar un bloque defectuoso durante la transmisión |
 | cfg_tx_prbs31_enable | input     | wire                  | Entrada para habilitar la generacion de patrones [[10GBASE/PCS/PRBS31\|PRBS31]]              |
 
@@ -45,6 +45,6 @@ Modulo del transmisor de 10g
 ## Instantiations
 
 - xgmii_baser_enc_inst: [[10GBASE/PCS/xgmii_baser_enc_64\|xgmii_baser_enc_64]]
-  -  Instancia de modulo para la codificacion de datos segun estandar [[Abbreviations#XGMII\|XGMII]]
+  -  Instancia de modulo para la codificacion de datos segun estandar [[10GBASE/Abbreviations#XGMII\|XGMII]]
 - eth_phy_10g_tx_if_inst: [[10GBASE/PCS/eth_phy_10g_tx_if\|eth_phy_10g_tx_if]]
-  -  Instancia para la recepción de datos codificados desde la capa [[Abbreviations#XGMII\|XGMII]], la configuración de la transmisión según parámetros como el bit reverse, la habilitación o deshabilitación de scrambler y la generación de PRBS31, así como la transmisión de estos datos codificados y la configuración del [[Abbreviations#SERDES\|SERDES]]
+  -  Instancia para la recepción de datos codificados desde la capa [[10GBASE/Abbreviations#XGMII\|XGMII]], la configuración de la transmisión según parámetros como el bit reverse, la habilitación o deshabilitación de scrambler y la generación de PRBS31, así como la transmisión de estos datos codificados y la configuración del [[10GBASE/Abbreviations#SERDES\|SERDES]]

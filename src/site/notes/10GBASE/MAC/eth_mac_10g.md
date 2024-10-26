@@ -18,7 +18,7 @@
 | KEEP_WIDTH              |      | (DATA_WIDTH/8)                                                                                           | Ancho de bits válidos                                    |
 | CTRL_WIDTH              |      | (DATA_WIDTH/8)                                                                                           | Ancho de control                                         |
 | ENABLE_PADDING          |      | 1                                                                                                        | Flag para habilitar padding                              |
-| ENABLE_DIC              |      | 1                                                                                                        | Flag para habilitar [[Abbreviations#DIC\|DIC]]           |
+| ENABLE_DIC              |      | 1                                                                                                        | Flag para habilitar [[10GBASE/Abbreviations#DIC\|DIC]]           |
 | MIN_FRAME_LENGTH        |      | 64                                                                                                       | Longitud mínima de trama                                 |
 | PTP_TS_ENABLE           |      | 0                                                                                                        | Flag para habilitar marca de tiempo PTP                  |
 | PTP_TS_FMT_TOD          |      | 1                                                                                                        | Formato de marca de tiempo PTP                           |
@@ -39,21 +39,21 @@
 | rx_rst                         | input     | wire                        | Señal de reset del receptor                                                             |
 | tx_clk                         | input     | wire                        | Señal de clock del transmisor                                                           |
 | tx_rst                         | input     | wire                        | Señal de reset del transmisor                                                           |
-| tx_axis_tdata                  | input     | wire [DATA_WIDTH-1:0]       | Datos de la interfaz [[Abbreviations#AXI\|AXI]] del transmisor                          |
-| tx_axis_tkeep                  | input     | wire [KEEP_WIDTH-1:0]       | Bits válidos de la interfaz [[Abbreviations#AXI\|AXI]] del transmisor                   |
-| tx_axis_tvalid                 | input     | wire                        | Señal de datos válidos de la interfaz [[Abbreviations#AXI\|AXI]] del transmisor         |
-| tx_axis_tready                 | output    | wire                        | Señal de ready de la interfaz [[Abbreviations#AXI\|AXI]] del transmisor                 |
-| tx_axis_tlast                  | input     | wire                        | Señal de fin de trama de la interfaz [[Abbreviations#AXI\|AXI]] del transmisor          |
-| tx_axis_tuser                  | input     | wire [TX_USER_WIDTH-1:0]    | Datos de usuario de la interfaz [[Abbreviations#AXI\|AXI]] del transmisor               |
-| rx_axis_tdata                  | output    | wire [DATA_WIDTH-1:0]       | Datos de la interfaz [[Abbreviations#AXI\|AXI]] del receptor                            |
-| rx_axis_tkeep                  | output    | wire [KEEP_WIDTH-1:0]       | Bits válidos de la interfaz [[Abbreviations#AXI\|AXI]] del receptor                     |
-| rx_axis_tvalid                 | output    | wire                        | Señal de datos válidos de la interfaz [[Abbreviations#AXI\|AXI]] del receptor           |
-| rx_axis_tlast                  | output    | wire                        | Señal de fin de trama de la interfaz [[Abbreviations#AXI\|AXI]] del receptor            |
-| rx_axis_tuser                  | output    | wire [RX_USER_WIDTH-1:0]    | Datos de usuario de la interfaz [[Abbreviations#AXI\|AXI]] del receptor                 |
-| xgmii_rxd                      | input     | wire [DATA_WIDTH-1:0]       | Datos recibidos de la interfaz [[Abbreviations#XGMII\|XGMII]]                           |
-| xgmii_rxc                      | input     | wire [CTRL_WIDTH-1:0]       | Datos de control recibidos de la interfaz [[Abbreviations#XGMII\|XGMII]]                |
-| xgmii_txd                      | output    | wire [DATA_WIDTH-1:0]       | Datos transmitidos de la interfaz [[Abbreviations#XGMII\|XGMII]]                        |
-| xgmii_txc                      | output    | wire [CTRL_WIDTH-1:0]       | Datos de control transmitidos de la interfaz [[Abbreviations#XGMII\|XGMII]]             |
+| tx_axis_tdata                  | input     | wire [DATA_WIDTH-1:0]       | Datos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del transmisor                          |
+| tx_axis_tkeep                  | input     | wire [KEEP_WIDTH-1:0]       | Bits válidos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del transmisor                   |
+| tx_axis_tvalid                 | input     | wire                        | Señal de datos válidos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del transmisor         |
+| tx_axis_tready                 | output    | wire                        | Señal de ready de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del transmisor                 |
+| tx_axis_tlast                  | input     | wire                        | Señal de fin de trama de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del transmisor          |
+| tx_axis_tuser                  | input     | wire [TX_USER_WIDTH-1:0]    | Datos de usuario de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del transmisor               |
+| rx_axis_tdata                  | output    | wire [DATA_WIDTH-1:0]       | Datos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del receptor                            |
+| rx_axis_tkeep                  | output    | wire [KEEP_WIDTH-1:0]       | Bits válidos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del receptor                     |
+| rx_axis_tvalid                 | output    | wire                        | Señal de datos válidos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del receptor           |
+| rx_axis_tlast                  | output    | wire                        | Señal de fin de trama de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del receptor            |
+| rx_axis_tuser                  | output    | wire [RX_USER_WIDTH-1:0]    | Datos de usuario de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] del receptor                 |
+| xgmii_rxd                      | input     | wire [DATA_WIDTH-1:0]       | Datos recibidos de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]                           |
+| xgmii_rxc                      | input     | wire [CTRL_WIDTH-1:0]       | Datos de control recibidos de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]                |
+| xgmii_txd                      | output    | wire [DATA_WIDTH-1:0]       | Datos transmitidos de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]                        |
+| xgmii_txc                      | output    | wire [CTRL_WIDTH-1:0]       | Datos de control transmitidos de la interfaz [[10GBASE/Abbreviations#XGMII\|XGMII]]             |
 | tx_ptp_ts                      | input     | wire [PTP_TS_WIDTH-1:0]     | Marca de tiempo PTP del transmisor                                                      |
 | rx_ptp_ts                      | input     | wire [PTP_TS_WIDTH-1:0]     | Marca de tiempo PTP del receptor                                                        |
 | tx_axis_ptp_ts                 | output    | wire [PTP_TS_WIDTH-1:0]     | Marca de tiempo PTP en interfaz AXI del transmisor                                      |
@@ -76,7 +76,7 @@
 | tx_error_underflow             | output    | wire                        | Error de subflujo en el transmisor                                                      |
 | rx_start_packet                | output    | wire [1:0]                  | Estado de inicio de paquete en el receptor                                              |
 | rx_error_bad_frame             | output    | wire                        | Error de trama incorrecta en el receptor                                                |
-| rx_error_bad_fcs               | output    | wire                        | Error de [[Abbreviations#FCS\|FCS]] incorrecto en el receptor                           |
+| rx_error_bad_fcs               | output    | wire                        | Error de [[10GBASE/Abbreviations#FCS\|FCS]] incorrecto en el receptor                           |
 | stat_tx_mcf                    | output    | wire                        | Estado que indica la transmisión de un marco de control MAC.                            |
 | stat_rx_mcf                    | output    | wire                        | Estado que indica la recepción de un marco de control MAC.                              |
 | stat_tx_lfc_pkt                | output    | wire                        | Estado que indica la transmisión de un paquete [[10GBASE/MAC/LFC\|LFC]].                                 |
@@ -133,17 +133,17 @@
 
 | Name               | Type                         | Description                                                                                         |
 | ------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------- |
-| tx_axis_tdata_int  | wire [DATA_WIDTH-1:0]        | Datos de salida internos de la interfaz [[Abbreviations#AXI\|AXI]] en el transmisor                 |
-| tx_axis_tkeep_int  | wire [KEEP_WIDTH-1:0]        | Bits válidos de salida internos de la interfaz [[Abbreviations#AXI\|AXI]] en el transmisor          |
-| tx_axis_tvalid_int | wire                         | Señal de datos válidos interna de la interfaz [[Abbreviations#AXI\|AXI]] en el transmisor           |
-| tx_axis_tready_int | wire                         | Flag de ready para recibir datos interna de la interfaz [[Abbreviations#AXI\|AXI]] en el transmisor |
-| tx_axis_tlast_int  | wire                         | Flag de fin de trama interna de la interfaz [[Abbreviations#AXI\|AXI]] en el transmisor             |
-| tx_axis_tuser_int  | wire [TX_USER_WIDTH_INT-1:0] | Datos de usuario internos de la interfaz [[Abbreviations#AXI\|AXI]] en el transmisor                |
-| rx_axis_tdata_int  | wire [DATA_WIDTH-1:0]        | Datos de entrada internos de la interfaz [[Abbreviations#AXI\|AXI]] en el receptor                  |
-| rx_axis_tkeep_int  | wire [KEEP_WIDTH-1:0]        | Bits válidos de entrada internos de la interfaz [[Abbreviations#AXI\|AXI]] en el receptor           |
-| rx_axis_tvalid_int | wire                         | Flag de datos válidos interna de la interfaz [[Abbreviations#AXI\|AXI]] en el receptor              |
-| rx_axis_tlast_int  | wire                         | Flag de fin de trama interna de la interfaz [[Abbreviations#AXI\|AXI]] en el receptor               |
-| rx_axis_tuser_int  | wire [RX_USER_WIDTH-1:0]     | Datos de usuario internos de la interfaz [[Abbreviations#AXI\|AXI]] en el receptor                  |
+| tx_axis_tdata_int  | wire [DATA_WIDTH-1:0]        | Datos de salida internos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el transmisor                 |
+| tx_axis_tkeep_int  | wire [KEEP_WIDTH-1:0]        | Bits válidos de salida internos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el transmisor          |
+| tx_axis_tvalid_int | wire                         | Señal de datos válidos interna de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el transmisor           |
+| tx_axis_tready_int | wire                         | Flag de ready para recibir datos interna de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el transmisor |
+| tx_axis_tlast_int  | wire                         | Flag de fin de trama interna de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el transmisor             |
+| tx_axis_tuser_int  | wire [TX_USER_WIDTH_INT-1:0] | Datos de usuario internos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el transmisor                |
+| rx_axis_tdata_int  | wire [DATA_WIDTH-1:0]        | Datos de entrada internos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el receptor                  |
+| rx_axis_tkeep_int  | wire [KEEP_WIDTH-1:0]        | Bits válidos de entrada internos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el receptor           |
+| rx_axis_tvalid_int | wire                         | Flag de datos válidos interna de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el receptor              |
+| rx_axis_tlast_int  | wire                         | Flag de fin de trama interna de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el receptor               |
+| rx_axis_tuser_int  | wire [RX_USER_WIDTH-1:0]     | Datos de usuario internos de la interfaz [[10GBASE/Abbreviations#AXI\|AXI]] en el receptor                  |
 
 ## Constants
 

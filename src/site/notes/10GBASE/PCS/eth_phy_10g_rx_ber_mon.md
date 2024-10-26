@@ -34,8 +34,8 @@ Modulo que controla el bit error rate y activa dicha señal cuando hay más de 1
 | time_count_next              | reg [COUNT_WIDTH-1:0] | Registro de contador de tiempo, se inicializa en COUNT_125US. |
 | ber_count_reg = 4'd0         | reg [3:0]             | Registro de contador de errores de header. Máximo 4 bits      |
 | ber_count_next               | reg [3:0]             | Registro de contador de errores de header. Máximo 4 bits      |
-| rx_high_ber_reg = 1'b0       | reg                   | Registro que indica un [[Abbreviations#BER\|BER]] alto.       |
-| rx_high_ber_next             | reg                   | Registro que indica un [[Abbreviations#BER\|BER]] alto.       |
+| rx_high_ber_reg = 1'b0       | reg                   | Registro que indica un [[10GBASE/Abbreviations#BER\|BER]] alto.       |
+| rx_high_ber_next             | reg                   | Registro que indica un [[10GBASE/Abbreviations#BER\|BER]] alto.       |
 
 ## Constants
 

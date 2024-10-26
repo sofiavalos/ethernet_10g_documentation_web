@@ -12,7 +12,7 @@
 ## Description
 
 Modulo que controla los bloques del receptor con interfaz SERDES. Puede o no generar PRSB31, Además de controlar la sincronización del header activando la flag de block lock si hay  64 headers consecutivos sin errores, dicha flag permanece activa siempre y cuando no haya más de 16 headers inválidos en intervalos de 64 headers.
-También controla si hay una tasa de [[Abbreviations#BER\|BER]] alta y monitorea el receptor para ver si es necesario solicitar un reset o activar pcs_status en caso de que se este en block_lock y no haya un [[Abbreviations#BER\|BER]] alto en 125us.
+También controla si hay una tasa de [[10GBASE/Abbreviations#BER\|BER]] alta y monitorea el receptor para ver si es necesario solicitar un reset o activar pcs_status en caso de que se este en block_lock y no haya un [[10GBASE/Abbreviations#BER\|BER]] alto en 125us.
 
 ## Generics
 
@@ -52,10 +52,10 @@ También controla si hay una tasa de [[Abbreviations#BER\|BER]] alta y monitorea
 
 | Name                                     | Type                            | Description                                                              |
 | ---------------------------------------- | ------------------------------- | ------------------------------------------------------------------------ |
-| serdes_rx_data_rev                       | wire [DATA_WIDTH-1:0]           | Señales para procesar los datos del [[Abbreviations#SERDES\|SERDES]]     |
-| serdes_rx_data_int                       | wire [DATA_WIDTH-1:0]           | Señales para procesar los datos del [[Abbreviations#SERDES\|SERDES]]     |
-| serdes_rx_hdr_rev                        | wire [HDR_WIDTH-1:0]            | Señales para procesar el encabezado del [[Abbreviations#SERDES\|SERDES]] |
-| serdes_rx_hdr_int                        | wire [HDR_WIDTH-1:0]            | Señales para procesar el encabezado del [[Abbreviations#SERDES\|SERDES]] |
+| serdes_rx_data_rev                       | wire [DATA_WIDTH-1:0]           | Señales para procesar los datos del [[10GBASE/Abbreviations#SERDES\|SERDES]]     |
+| serdes_rx_data_int                       | wire [DATA_WIDTH-1:0]           | Señales para procesar los datos del [[10GBASE/Abbreviations#SERDES\|SERDES]]     |
+| serdes_rx_hdr_rev                        | wire [HDR_WIDTH-1:0]            | Señales para procesar el encabezado del [[10GBASE/Abbreviations#SERDES\|SERDES]] |
+| serdes_rx_hdr_int                        | wire [HDR_WIDTH-1:0]            | Señales para procesar el encabezado del [[10GBASE/Abbreviations#SERDES\|SERDES]] |
 | descrambled_rx_data                      | wire [DATA_WIDTH-1:0]           | Almacena los datos descifrados despues del proceso de descambler         |
 | encoded_rx_data_reg = {DATA_WIDTH{1'b0}} | reg [DATA_WIDTH-1:0]            | Registro para almacenar los datos codificados                            |
 | encoded_rx_hdr_reg = {HDR_WIDTH{1'b0}}   | reg [HDR_WIDTH-1:0]             | Registro para almacenar el encabezado codificado                         |
@@ -93,6 +93,6 @@ También controla si hay una tasa de [[Abbreviations#BER\|BER]] alta y monitorea
 - eth_phy_10g_rx_frame_sync_inst: [[10GBASE/PCS/eth_phy_10g_rx_frame_sync\|eth_phy_10g_rx_frame_sync]]
   -  Instancia un módulo de sincronizacion del frame
 - eth_phy_10g_rx_ber_mon_inst: [[10GBASE/PCS/eth_phy_10g_rx_ber_mon\|eth_phy_10g_rx_ber_mon]]
-  -  Instancia un módulo para monitorear el [[Abbreviations#BER\|BER]]
+  -  Instancia un módulo para monitorear el [[10GBASE/Abbreviations#BER\|BER]]
 - eth_phy_10g_rx_watchdog_inst: [[10GBASE/PCS/eth_phy_10g_rx_watchdog\|eth_phy_10g_rx_watchdog]]
   -  Instancia un modulo para monitoreo de los errores y estado del receptor
