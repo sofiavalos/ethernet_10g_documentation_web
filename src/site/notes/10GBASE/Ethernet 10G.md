@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/10-gbase/ethernet-10-g/","tags":["gardenEntry"]}
+{"dg-publish":true,"permalink":"/10-gbase/ethernet-10-g/"}
 ---
 
 ### Repositorio
